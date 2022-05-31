@@ -22,11 +22,33 @@ class Node:
 
         return ret
 
-    # Deserialize string into binary tree using preorder traversal
+    # Deserialize prefix notation string into binary tree
     def deserialize(val):
-        pass
+        stack = val.split(" ")
+        return Node.build(stack)
 
-node = Node(1, Node(2, Node(4)), Node(3))
-#assert deserialize(serialize(node)).left.left.val == 'left.left'
+    # Build binary tree from prefix notation stack
+    def build(stack):
+        if stack[0] == "None":
+            stack.pop(0)
+            return None
+        node = Node(stack.pop(0))
+        
+        if len(stack) == 0: return node
+        elif stack[0] == "None": stack.pop(0)
+        else: node.left = Node.build(stack)
+
+        if len(stack) == 0: return node
+        elif stack[0] == "None": stack.pop(0)
+        else: node.right = Node.build(stack)
+
+        return node
+
+node = Node('root', Node('left', Node('left.left')), Node('right'))
+assert Node.deserialize(node.serialize()).left.left.val == 'left.left'
 
 print(node.serialize())
+
+print(Node.deserialize(node.serialize()).serialize())
+
+print(Node.deserialize(node.serialize()).left.left.val)
