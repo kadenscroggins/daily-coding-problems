@@ -15,16 +15,27 @@ int main() {
     cout << bitset<8>(c) << endl;
     */
 
-
+    cout << "End of program" << endl;
     return 0;
 }
 
 template<typename T>
-class Node {
+class List {
 public:
     void add(T data) {
-        this->data = data;
+        uintptr_t previous;
+        uintptr_t current;
+        uintptr_t next;
+
+        
+    }
+    T get(int index) {
+        return new T;
     }
 private:
-    T data;
+    struct Node {
+        T data;
+        uintptr_t pointer;
+    };
+    Node *head;
 };
