@@ -14,6 +14,7 @@ int main() {
     cout << bitset<8>(b) << endl;
     cout << bitset<8>(c) << endl;
     */
+   List<int> *list = new List<int>();
 
     cout << "End of program" << endl;
     return 0;
@@ -27,7 +28,7 @@ public:
         uintptr_t current;
         uintptr_t next;
 
-        
+
     }
     T get(int index) {
         return new T;
