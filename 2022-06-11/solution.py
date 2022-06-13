@@ -1,7 +1,7 @@
 from random import randint
 
 count = 0
-with open('./lines.txt') as file:
+with open('lines.txt') as file:
     for line in file:
         count += 1
 
